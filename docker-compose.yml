@@ -1,9 +1,11 @@
 version: '3.9'
 
 services:  
-  authentication_db:
+  authentication-db:
     image: mysql:8.0
     restart: unless-stopped
+    ports:
+      - 8080:8080
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: authdb
