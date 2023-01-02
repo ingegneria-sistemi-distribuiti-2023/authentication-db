@@ -2,17 +2,30 @@ version: '3.9'
 
 services:  
   authentication-db:
-    image: mysql:8.0
-    restart: unless-stopped
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    restart: always
     ports:
-      - 8080:8080
+      - '3306:3306'
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: authdb
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin
-    volumes:
-      - "./schema.sql:/docker-entrypoint-initdb.d/1.sql"
-      - "./data.sql:/docker-entrypoint-initdb.d/2.sql"
-
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
+      start_period: 5s
+      interval: 5s
+      timeout: 5s
+      retries: 55
+    networks:
+      - authentication-network
     container_name: authentication_db
+
+networks: 
+  authentication-network:
+    name: authentication-network
