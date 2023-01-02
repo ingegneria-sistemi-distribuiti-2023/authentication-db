@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:  
+  authentication-db:
+    image: mysql:8.0
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: authdb
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    volumes:
+      - "./schema.sql:/docker-entrypoint-initdb.d/1.sql"
+      - "./data.sql:/docker-entrypoint-initdb.d/2.sql"
+
+    container_name: authentication_db
