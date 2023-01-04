@@ -24,7 +24,7 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag khalld/authentication-db:latest .
+      run: docker build . --file Dockerfile --tag khalld/authentication-db:latest
     - name: Push on Docker Hub
       run: docker push khalld/authentication-db:latest
 
