@@ -7,10 +7,10 @@ services:
       dockerfile: Dockerfile
     restart: always
     ports:
-      - '3306:3306'
+      - '23306:3306'
     expose:
-      # Opens port 3306 on the container
-      - '3306'
+      # Opens port 23306 on the container
+      - '23306'
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: authdb
@@ -23,9 +23,9 @@ services:
       timeout: 5s
       retries: 55
     networks:
-      - authentication-network
+      - authentication-db-network
     container_name: authentication_db
 
 networks: 
-  authentication-network:
-    name: authentication-network
+  authentication-db-network:
+    name: authentication-db-network
