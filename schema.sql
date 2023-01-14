@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS `authdb`.`users` (
   `username` VARCHAR(45) NULL,
   `password` VARCHAR(45) NULL,
   `enabled` TINYINT NOT NULL DEFAULT 0,
+  `role` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
