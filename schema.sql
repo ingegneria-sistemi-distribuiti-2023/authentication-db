@@ -49,6 +49,7 @@ CREATE TABLE IF NOT EXISTS `authdb`.`transactions` (
   `amount` FLOAT UNSIGNED NOT NULL,
   `status` VARCHAR(45) NOT NULL,
   `date` DATETIME NOT NULL DEFAULT NOW(),
+  `category` VARCHAR(45) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_transactions_users1_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `fk_transactions_users1`
