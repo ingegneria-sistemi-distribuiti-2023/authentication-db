@@ -24,7 +24,7 @@ services:
       retries: 55
     networks:
       - authentication-db-network
-    container_name: authentication_db
+    container_name: authentication-db
 
 networks: 
   authentication-db-network:
