@@ -2,9 +2,10 @@ version: '3.9'
 
 services:  
   authentication-db:
-    build: 
-      context: .
-      dockerfile: Dockerfile
+    # build: 
+    #   context: .
+    #   dockerfile: Dockerfile
+    image: khalld/authentication-db:latest
     restart: always
     ports:
       - '23306:3306'
