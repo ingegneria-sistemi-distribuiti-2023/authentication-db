@@ -1,12 +1,3 @@
--- MySQL Workbench Forward Engineering
-
--- -----------------------------------------------------
--- Schema authdb
--- -----------------------------------------------------
-
--- -----------------------------------------------------
--- Schema authdb
--- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `authdb` DEFAULT CHARACTER SET utf8 ;
 USE `authdb` ;
 
