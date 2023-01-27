@@ -6,7 +6,7 @@ services:
     #   context: .
     #   dockerfile: Dockerfile
     image: khalld/authentication-db:latest
-    restart: always
+    restart: unless-stopped
     ports:
       - '23306:3306'
     expose:
